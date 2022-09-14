@@ -1,0 +1,65 @@
+.main{
+  height: 100vh;
+  overflow-x: auto;
+}
+
+.header{
+  padding: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+.navigation{
+  height: 100vh;
+  background-color: #43515e !important;
+  color: white !important; 
+  font-size: 22px;
+  font-weight: 400;
+ 
+}
+.navigation>div{
+  background-color: #43515e !important;
+  color: white !important; 
+  font-size: 22px;
+  font-weight: 400;
+}
+.navBody>*{
+  background-color: #43515e !important;
+  color: white !important; 
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.mainFistSection{
+  background-image: url(https://teadentstudio.rs/wp-content/uploads/2016/11/home-slide.jpg);
+  width: 100%;
+  background-size: cover;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  padding-left: 150px;
+}
+
+.homeTitle{
+  font-size: 34px;
+  font-weight: 300;
+  color: white;
+}
+
+.mainSecondSection{
+  display: flex;
+  align-items: center;
+  padding-top: 50px;
+  flex-direction: column;
+  height: 600px;
+}
+
+.title{
+  font-size: 28px;
+  font-weight: 300;
+}
+.content{
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  word-wrap: break-word;
+}

@@ -34,7 +34,7 @@ AppDataSource.initialize().then(async () => {
         }
         const token = splited[1];
         try {
-            const userId = jwt.verify(token, process.env.JWT_SECRET) as { id: number };
+            const userId = jwt.verify(token, process.env.JWT_SECRET || 'tokkkeennn') as { id: number };
             const user = await AppDataSource.getRepository(User).findOne({
                 where: { id: userId.id }
             });
@@ -48,13 +48,17 @@ AppDataSource.initialize().then(async () => {
             res.status(401).json({ error: 'unauthorized' })
         }
     })
-
+    app.get('/check', (req, res) => {
+        res.json((req as any).user);
+    })
     app.use('/service', serviceRouter)
     app.use('/ordination', ordinationRouter)
     app.use('/dentist', dentistRouter)
     app.use('/patient/interventions', patientInterventionRouter)
     app.use('/technitian/interventions', technitianInterventionRouter)
 
-    app.listen(8000)
+    app.listen(8000, () => {
+        console.log("Server has successfully started")
+    })
 
 }).catch(error => console.log(error))

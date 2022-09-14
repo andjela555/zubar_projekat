@@ -1,0 +1,55 @@
+
+export interface Dentist {
+  id: number,
+  firstName: string,
+  lastName: string,
+  phone: string,
+  ordination: Ordination
+}
+
+
+export interface Ordination {
+  id: number,
+  address: string,
+  phone: string,
+  email: string
+}
+
+export interface Service {
+  id: number,
+  name: string,
+  description: string,
+  price: number
+}
+
+export interface User {
+  id: number,
+  firstName: string,
+  lastName: string,
+  email: string,
+  birthDate: string,
+  type: 'patient' | 'technitian'
+}
+
+export interface Intervention {
+  id: number,
+  user: User,
+  createdAt: string,
+  status: 'pending' | 'accepted' | 'rejected' | 'finished',
+  dentist: Dentist,
+  start: string,
+  end: string,
+  items: InterventionItem[]
+}
+
+export interface InterventionItem {
+  id: number,
+  interventionId: number,
+  price: number,
+  service: Service
+}
+
+export interface UserRes {
+  user: User,
+  token: string
+}

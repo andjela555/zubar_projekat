@@ -17,7 +17,7 @@ router.post('/login', async (req, res) => {
     res.status(400).json({ error: 'Bad credentials' });
     return;
   }
-  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: '2h' });
+  const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET || 'tokkkeennn', { expiresIn: '2h' });
   res.json({
     user,
     token
@@ -51,7 +51,7 @@ router.post('/register', async (req, res) => {
     password: data.password,
     type: 'patient'
   })
-  const token = jwt.sign({ id: createdUser.id }, process.env.JWT_SECRET, { expiresIn: '2h' });
+  const token = jwt.sign({ id: createdUser.id }, process.env.JWT_SECRET || 'tokkkeennn', { expiresIn: '2h' });
   res.json({
     user: createdUser,
     token
