@@ -11,6 +11,11 @@ import axios from 'axios'
 import RegisterPage from './auth/RegisterPage';
 import Navigation from './patient/Navigation';
 import HomePage from './patient/HomePage';
+import TechnitianNavigation from './technitian/TechnitianNavigation';
+import DentistsPage from './technitian/DentistsPage';
+import ServicesPage from './patient/ServicesPage';
+import SchedulePage from './patient/SchedulePage';
+import StatisticsPage from './technitian/StatisticsPage';
 
 axios.defaults.baseURL = 'http://localhost:8000'
 
@@ -78,7 +83,12 @@ function App() {
           />
         </FlexboxGrid.Item>
         <FlexboxGrid.Item className='main' colspan={21}>
+          <div className='mainFistSection'>
+            <div className='homeTitle'>Welcome to our website</div>
+          </div>
           <Routes>
+            <Route path='/schedule' element={<SchedulePage />} />
+            <Route path='/services' element={<ServicesPage />} />
             <Route path='*' element={<HomePage />} />
           </Routes>
         </FlexboxGrid.Item>
@@ -86,22 +96,24 @@ function App() {
     )
   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FlexboxGrid justify='space-between'>
+      <FlexboxGrid.Item colspan={3}>
+        <TechnitianNavigation user={user}
+          onLogout={() => {
+            setUser(undefined);
+            localStorage.removeItem('token')
+            axios.defaults.headers.common.authorization = ''
+          }}
+        />
+      </FlexboxGrid.Item>
+      <FlexboxGrid.Item className='main' colspan={21}>
+        <Routes>
+          <Route path='/dentists' element={<DentistsPage />} />
+          <Route path='/statistics' element={<StatisticsPage />} />
+          <Route path='*' element={<HomePage />} />
+        </Routes>
+      </FlexboxGrid.Item>
+    </FlexboxGrid>
   );
 }
 

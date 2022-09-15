@@ -19,7 +19,7 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASS || 'root',
     database: "dentist",
-    logging: true,
+    logging: false,
     entities: [User, Dentist, Ordination, Service, Intervention, InterventionItem],
     migrations: [users1663089750515, dentists1663090355775, ordinations1663090730523, services1663091052283, interventions1663091835006],
     subscribers: [],

@@ -4,9 +4,6 @@ import React from 'react'
 export default function HomePage() {
   return (
     <div>
-      <div className='mainFistSection'>
-        <div className='homeTitle'>Welcome to our website</div>
-      </div>
       <div className='mainSecondSection'>
         <div className='title'>
           Pacient's pleasure and trust is our greatest motivation

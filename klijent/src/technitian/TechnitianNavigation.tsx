@@ -8,7 +8,7 @@ interface Props {
   onLogout: () => void
 }
 
-export default function Navigation(props: Props) {
+export default function TechnitianNavigation(props: Props) {
   return (
     <Sidenav className='navigation'>
       <Sidenav.Header className='header'>
@@ -20,25 +20,19 @@ export default function Navigation(props: Props) {
             as={NavLink}
             to='/'
           >
-            Home page
+            Interventions
           </Nav.Item>
           <Nav.Item
             as={NavLink}
-            to='/services'
+            to='/dentists'
           >
-            Services
+            Dentists
           </Nav.Item>
           <Nav.Item
             as={NavLink}
-            to='/schedule'
+            to='/statistics'
           >
-            Schedule intervention
-          </Nav.Item>
-          <Nav.Item
-            as={NavLink}
-            to='/history'
-          >
-            History
+            Statistics
           </Nav.Item>
           <Nav.Item>
             <Button

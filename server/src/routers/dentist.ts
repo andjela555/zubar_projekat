@@ -59,7 +59,7 @@ router.patch('/:id', typeMiddleware('technitian'), async (req, res) => {
     dentist.firstName = req.body.firstName;
   }
   if (req.body.lastName) {
-    dentist.lastName = req.body.firstName;
+    dentist.lastName = req.body.lastName;
   }
   if (req.body.phone) {
     dentist.phone = req.body.phone;
