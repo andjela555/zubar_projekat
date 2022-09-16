@@ -13,7 +13,10 @@ export class InterventionItem {
   interventionId: number;
 
   @Column()
-  price: number;
+  unitPrice: number;
+
+  @Column({ type: 'int' })
+  quantity: number;
 
   @ManyToOne(() => Service)
   service: Service;

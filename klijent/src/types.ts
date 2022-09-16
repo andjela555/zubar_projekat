@@ -36,20 +36,25 @@ export interface Intervention {
   user: User,
   createdAt: string,
   status: 'pending' | 'accepted' | 'rejected' | 'finished',
-  dentist: Dentist,
+  dentist?: Dentist,
   start: string,
-  end: string,
+  end?: string,
   items: InterventionItem[]
 }
 
 export interface InterventionItem {
   id: number,
-  interventionId: number,
-  price: number,
+  unitPrice: number,
+  quantity: number,
   service: Service
 }
 
 export interface UserRes {
   user: User,
   token: string
+}
+
+export interface InterventionResult {
+  totalElements: number,
+  interventions: Intervention[]
 }

@@ -16,6 +16,8 @@ import DentistsPage from './technitian/DentistsPage';
 import ServicesPage from './patient/ServicesPage';
 import SchedulePage from './patient/SchedulePage';
 import StatisticsPage from './technitian/StatisticsPage';
+import HistoryPage from './patient/HistoryPage';
+import InterventionPage from './technitian/InterventionPage';
 
 axios.defaults.baseURL = 'http://localhost:8000'
 
@@ -88,6 +90,7 @@ function App() {
           </div>
           <Routes>
             <Route path='/schedule' element={<SchedulePage />} />
+            <Route path='/history' element={<HistoryPage />} />
             <Route path='/services' element={<ServicesPage />} />
             <Route path='*' element={<HomePage />} />
           </Routes>
@@ -110,7 +113,7 @@ function App() {
         <Routes>
           <Route path='/dentists' element={<DentistsPage />} />
           <Route path='/statistics' element={<StatisticsPage />} />
-          <Route path='*' element={<HomePage />} />
+          <Route path='*' element={<InterventionPage />} />
         </Routes>
       </FlexboxGrid.Item>
     </FlexboxGrid>

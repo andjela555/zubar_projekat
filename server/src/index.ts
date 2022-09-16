@@ -54,6 +54,7 @@ AppDataSource.initialize().then(async () => {
     app.use('/service', serviceRouter)
     app.use('/ordination', ordinationRouter)
     app.use('/dentist', dentistRouter)
+    app.use('/dentist', dentistRouter)
     app.use('/patient/interventions', patientInterventionRouter)
     app.use('/technitian/interventions', technitianInterventionRouter)
 

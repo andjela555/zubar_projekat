@@ -11,6 +11,7 @@ import { dentists1663090355775 } from "./migration/1663090355775-dentists"
 import { ordinations1663090730523 } from "./migration/1663090730523-ordinations"
 import { services1663091052283 } from "./migration/1663091052283-services"
 import { interventions1663091835006 } from "./migration/1663091835006-interventions"
+import { itemquantity1663352940019 } from "./migration/1663352940019-itemquantity"
 
 export const AppDataSource = new DataSource({
     type: "mysql",
@@ -21,6 +22,6 @@ export const AppDataSource = new DataSource({
     database: "dentist",
     logging: false,
     entities: [User, Dentist, Ordination, Service, Intervention, InterventionItem],
-    migrations: [users1663089750515, dentists1663090355775, ordinations1663090730523, services1663091052283, interventions1663091835006],
+    migrations: [users1663089750515, dentists1663090355775, ordinations1663090730523, services1663091052283, interventions1663091835006, itemquantity1663352940019],
     subscribers: [],
 })
