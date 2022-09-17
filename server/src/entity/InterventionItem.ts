@@ -13,12 +13,18 @@ export class InterventionItem {
   interventionId: number;
 
   @Column()
+  serviceId: number;
+
+  @Column()
   unitPrice: number;
 
   @Column({ type: 'int' })
   quantity: number;
 
   @ManyToOne(() => Service)
+  @JoinColumn({
+    name: 'serviceId'
+  })
   service: Service;
 
   @ManyToOne(() => Intervention, intervention => intervention.items, { onDelete: 'CASCADE' })

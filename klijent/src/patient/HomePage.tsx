@@ -1,7 +1,16 @@
 
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 
 export default function HomePage() {
+  const [text, setText] = useState('');
+
+  useEffect(() => {
+    axios.get('/funfact').then(res => {
+      setText(res.data.text)
+    })
+  }, [])
+
   return (
     <div>
       <div className='mainSecondSection'>
@@ -18,6 +27,14 @@ export default function HomePage() {
           <br />
           <br />
           In our ordinations, we offer treatments that improve the appearance of your smile, giving you the confidence you deserve. Schedule a free examination, and we will take care of the beauty of your smile.
+        </div>
+        <div className='padding'>
+          <div className='header'>
+            Fun fact
+          </div>
+          <div className='padding'>
+            {text}
+          </div>
         </div>
       </div>
     </div>

@@ -41,6 +41,19 @@ export interface Intervention {
   end?: string,
   items: InterventionItem[]
 }
+export interface ChangeInterventinDto {
+  start: Date,
+  end: Date,
+  dentistId: number,
+  status: 'pending' | 'accepted' | 'rejected' | 'finished',
+  items: ChangeItemDto[]
+}
+interface ChangeItemDto {
+  type: 'UPDATE' | 'CREATE' | 'DELETE',
+  id?: number,
+  quantity?: number,
+  serviceId?: number
+}
 
 export interface InterventionItem {
   id: number,

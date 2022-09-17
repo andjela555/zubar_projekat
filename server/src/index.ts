@@ -4,8 +4,10 @@ import { AppDataSource } from "./data-source"
 import * as cors from 'cors';
 import authRouter from './routers/auth'
 import serviceRouter from './routers/service'
+import funfactRouter from './routers/funfact'
 import ordinationRouter from './routers/ordination'
 import dentistRouter from './routers/dentist'
+import statisticsRouter from './routers/statistics'
 import patientInterventionRouter from './routers/patientInterventions'
 import technitianInterventionRouter from './routers/technitianInterventions'
 import * as jwt from 'jsonwebtoken'
@@ -52,11 +54,12 @@ AppDataSource.initialize().then(async () => {
         res.json((req as any).user);
     })
     app.use('/service', serviceRouter)
+    app.use('/funfact', funfactRouter)
     app.use('/ordination', ordinationRouter)
-    app.use('/dentist', dentistRouter)
     app.use('/dentist', dentistRouter)
     app.use('/patient/interventions', patientInterventionRouter)
     app.use('/technitian/interventions', technitianInterventionRouter)
+    app.use('/statistics', statisticsRouter)
 
     app.listen(8000, () => {
         console.log("Server has successfully started")
